@@ -1,0 +1,13 @@
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: ClusterRequiredLabels
+metadata:
+  name: costcenterlabelrequired
+  annotations:
+    description: "Namespaces must have label named region."
+spec:
+  match:
+    kinds:
+      - apiGroups: [""]
+        kinds: ["Namespace"]
+  parameters:
+    labels: ["region"]
